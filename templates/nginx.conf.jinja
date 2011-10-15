@@ -1,0 +1,14 @@
+server {
+  server_name {{ domain }};
+  location / {
+    uwsgi_pass unix://{{ uwsgi_sock }};
+    include uwsgi_params;
+  }
+  location /static/ {
+    alias {{ repo }}/static/;
+  }
+  location /favicon.ico {
+    return 404;
+  }
+}
+

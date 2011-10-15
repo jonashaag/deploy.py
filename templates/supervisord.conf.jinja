@@ -1,0 +1,9 @@
+[supervisord]
+; sentinel section, don't remove
+
+[program:{{ domain }}]
+command=uwsgi -M -s {{ uwsgi_sock }} -H {{ virtualenv }} -w wsgi
+user=www
+redirect_stderr=true
+stdout_logfile=/var/log/supervisord/{{ domain }}.log
+stopsignal=QUIT
