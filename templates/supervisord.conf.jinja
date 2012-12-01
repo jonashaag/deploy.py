@@ -1,8 +1,8 @@
 [supervisord]
-; sentinel section, don't remove
+;sentinel section, don't remove
 
 [program:{{ domain }}]
-command=uwsgi -M -s {{ uwsgi_sock }} -H {{ virtualenv }} -w wsgi
+command=uwsgi -M -s {{ uwsgi_sock }} -H {{ virtualenv }} --pythonpath {{ repo }} -w {{ project_name }}.wsgi
 user=www
 redirect_stderr=true
 stdout_logfile=/var/log/supervisord/{{ domain }}.log

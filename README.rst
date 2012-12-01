@@ -16,7 +16,7 @@ In your project directory, do ::
    ln -s /path/to/deploy/deploy.py
 
    vim fabfile.py
-   ./deploy.py
+   fab deploy
 
 On the remote host, do ::
 
@@ -28,7 +28,7 @@ Subsequent Deploys
 ------------------
 ::
 
-   ./deploy.py
+   fab deploy
 
 
 .. _tox: http://tox.readthedocs.org
